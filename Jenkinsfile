@@ -22,8 +22,8 @@ pipeline {
             steps {
                 echo 'Compiling and building'
                 sh 'go mod tidy'
-                sh 'go build'
-                sh 'go run main.go'
+                sh 'go build main.go'
+                sh './main'
             }
 
         }
