@@ -4,4 +4,4 @@ WORKDIR /opt
 RUN go mod tidy
 RUN go build main.go
 COPY . /opt
-CMD ["./main"]
+CMD ["main"]
