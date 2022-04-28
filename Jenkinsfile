@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        go 'go1.14'
+        go 'go1.18.1'
     }
     environment {
         GO114MODULE = 'on'
@@ -23,7 +23,7 @@ pipeline {
             }
         }
         
-        stage('Build') {
+        stage('Build') {https://github.com/erdenetsogt-d/jj-test/blob/main/Jenkinsfile
             steps {
                 echo 'Compiling and building'
                 sh 'go mod tidy'
