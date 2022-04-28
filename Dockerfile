@@ -1,7 +1,10 @@
-FROM golang:1.18.1-alpine
-EXPOSE 8000
+FROM golang:1.18.1-alpine as builder
 WORKDIR /opt
 COPY . /opt
 RUN go mod tidy
 RUN go build main.go
-CMD ["./main"]
+FROM scratch
+COPY --from=builder /usr/share/zoneinfo /usr/share/zoneinfo
+COPY --from=builder /opt/main .
+ENTRYPOINT ["/whoami"]
+EXPOSE 8000
