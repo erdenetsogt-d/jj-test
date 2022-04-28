@@ -9,7 +9,6 @@ pipeline {
       dockerImage = ""
     }
 
-    stages {        
         stage('Pre Test') {
             steps {
                 echo 'Installing dependencies'
@@ -31,8 +30,4 @@ pipeline {
             def app = docker.build("erdee/docker-nodejs-demo:${commit_id}", '.').push()
             }
         }
-
-        
-    }
-
 }
