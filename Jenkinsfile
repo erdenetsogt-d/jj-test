@@ -14,7 +14,6 @@ pipeline {
             steps {
                 echo 'Installing dependencies'
                 sh 'go version'
-                sh 'go mod tidy'
             }
         }
         
