@@ -22,12 +22,15 @@ pipeline {
             steps {
                 echo 'Compiling and building'
                 sh 'go mod tidy'
-                sh 'go build main.go'
-                sh './main'
+                sh 'go build'
             }
 
         }
-
+        stage('docker build/push') {
+          docker.withRegistry('https://registry-1.docker.io/v2/', 'b815ddb5-b528-4727-a597-508c12a7ecda') {
+            def app = docker.build("erdee/docker-nodejs-demo:${commit_id}", '.').push()
+            }
+        }
 
         
     }
