@@ -22,6 +22,10 @@ pipeline {
                 echo 'Compiling and building'
                 sh 'go mod tidy'
                 sh 'go build'
+                script {
+                    dockerImage = docker.build(registry + ":go-websample$BUILD_NUMBER", "-f Dockerfile .")
+                
+                }
             }
 
         }
