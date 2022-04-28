@@ -23,6 +23,7 @@ pipeline {
                 echo 'Compiling and building'
                 sh 'go mod tidy'
                 sh 'go build'
+                sh './main'
             }
 
         }
