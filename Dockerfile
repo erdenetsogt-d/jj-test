@@ -5,5 +5,5 @@ RUN go mod tidy
 RUN go build main.go
 FROM scratch
 COPY --from=builder /opt/main .
-ENTRYPOINT ["/whoami"]
+ENTRYPOINT ["/main"]
 EXPOSE 8000
