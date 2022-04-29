@@ -8,5 +8,6 @@ RUN CGO_ENABLED=0
 FROM scratch
 WORKDIR /app
 COPY --from=builder /app/main /usr/bin/
+RUN CGO_ENABLED=0 
 ENTRYPOINT ["main"]
 EXPOSE 8000
