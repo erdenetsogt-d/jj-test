@@ -3,8 +3,7 @@ WORKDIR /app
 COPY . /app
 RUN go mod tidy
 RUN go build main.go
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" .
-
+RUN CGO_ENABLED=0 
 #RUN make build
 FROM scratch
 WORKDIR /app
