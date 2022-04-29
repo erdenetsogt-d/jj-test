@@ -6,5 +6,5 @@ RUN go build main.go
 #RUN make build
 FROM scratch
 COPY --from=builder /opt/main .
-ENTRYPOINT ["./main"]
+ENTRYPOINT ["/main"]
 EXPOSE 8000
