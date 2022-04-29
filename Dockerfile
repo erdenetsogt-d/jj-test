@@ -1,10 +1,11 @@
-FROM golang:1.18.1-alpine as builder
-WORKDIR /opt
-COPY . /opt
+FROM golang:alpine as builder
+WORKDIR /app
+COPY . /app
 RUN go mod tidy
 RUN go build main.go
 #RUN make build
 FROM scratch
-COPY --from=builder /opt/main .
-ENTRYPOINT ["/main"]
+WORKDIR /app
+COPY --from=builder /app/main /usr/bin/
+ENTRYPOINT ["main"]
 EXPOSE 8000
