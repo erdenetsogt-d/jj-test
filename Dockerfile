@@ -8,5 +8,5 @@ RUN CGO_ENABLED=0
 FROM scratch
 COPY --from=builder /app/main /usr/bin/
 COPY --from=builder /app/main .
-ENTRYPOINT ["/main"]
 EXPOSE 8000
+CMD ["/main"]
