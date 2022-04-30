@@ -7,21 +7,20 @@ import (
 )
 
 func main() {
-  // Echo instance
-  e := echo.New()
+  
+  
+    router := NewRouter()
 
-  // Middleware
-  e.Use(middleware.Logger())
-  e.Use(middleware.Recover())
-
-  // Routes
-  e.GET("/", hello)
-
-  // Start server
-  e.Logger.Fatal(e.Start(":8000"))
+    router.Logger.Fatal(router.Start(":8000"))
 }
+func NewRouter() *echo.Echo {
+    e := echo.New()
 
-// Handler
+    e.GET("/", hello)
+
+    return e
+}
 func hello(c echo.Context) error {
+
   return c.String(http.StatusOK, "Hello, World!")
 }
