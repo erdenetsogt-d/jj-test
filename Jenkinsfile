@@ -32,7 +32,7 @@ pipeline {
       stage('Push Image') {
         steps{
           script {
-            docker.withRegistry('https://registry-1.docker.io/v2/', 'b815ddb5-b528-4727-a597-508c12a7ecda') {
+            docker.withRegistry('https://registry-1.docker.io/v2/', 'dockerhub') {
               dockerImage.push()
                 
             }
